@@ -30,9 +30,7 @@ const config = {
     babel({ exclude: 'node_modules/**' }),
     minify(),
     localResolve(),
-    resolve({
-      browser: true,
-    }),
+    resolve(),
     commonjs(),
     json(),
     filesize(),
