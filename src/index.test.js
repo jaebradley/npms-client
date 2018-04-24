@@ -29,12 +29,7 @@ describe('integration test', () => {
 
   describe('#getPackagseInformation', () => {
     it('should get package information for react, react-dom, and prop-types', async () => {
-      try {
-        const response = await getPackagesInformation(['react', 'react-dom', 'prop-types']);
-        console.log(response);
-      } catch (e) {
-        console.log(e);
-      }
-    });
+      const response = await getPackagesInformation(['react', 'react-dom', 'prop-types']);
+      expect(response).toBeDefined();
   });
 });
