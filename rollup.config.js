@@ -16,32 +16,46 @@ const config = {
       file: 'build/index.js',
       format: 'umd',
       name: 'npms-client',
+      globals: [
+        'axios',
+      ],
     },
     {
       file: 'build/index.cjs.js',
       format: 'cjs',
       name: 'npms-client',
+      globals: [
+        'axios',
+      ],
     },
     {
       file: 'build/index.esm.js',
       format: 'es',
+      globals: [
+        'axios',
+      ],
     },
+  ],
+  external: [
+    'axios',
   ],
   plugins: [
     globals(),
     builtins(),
     babel({ exclude: 'node_modules/**' }),
-    minify(),
-    uglify(),
-    localResolve({
+    localResolve(),
+    json(),
+    resolve({
+      module: true,
       jsnext: true,
       main: true,
       preferBuiltins: true,
       browser: true,
+      modulesOnly: true,
     }),
-    resolve(),
-    json(),
     commonjs(),
+    minify(),
+    uglify(),
     filesize(),
   ],
 };

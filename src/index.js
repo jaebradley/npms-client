@@ -1,5 +1,5 @@
 import axios from 'axios';
-import qs from 'qs';
+import qs from 'querystring';
 
 import buildSearchQuery from './buildSearchQuery';
 import PACKAGE_TYPES from './packageTypes';
