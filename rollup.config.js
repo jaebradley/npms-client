@@ -4,6 +4,8 @@ import resolve from 'rollup-plugin-node-resolve';
 import localResolve from 'rollup-plugin-local-resolve';
 import filesize from 'rollup-plugin-filesize';
 import minify from 'rollup-plugin-babel-minify';
+import json from 'rollup-plugin-json';
+import builtins from 'rollup-plugin-node-builtins';
 
 const config = {
   input: 'src/index.js',
@@ -11,12 +13,12 @@ const config = {
     {
       file: 'build/index.js',
       format: 'umd',
-      name: "npms-client",
+      name: 'npms-client',
     },
     {
       file: 'build/index.cjs.js',
       format: 'cjs',
-      name: "npms-client",
+      name: 'npms-client',
     },
     {
       file: 'build/index.esm.js',
@@ -24,11 +26,15 @@ const config = {
     },
   ],
   plugins: [
+    builtins(),
     babel({ exclude: 'node_modules/**' }),
     minify(),
     localResolve(),
-    resolve(),
+    resolve({
+      browser: true,
+    }),
     commonjs(),
+    json(),
     filesize(),
   ],
 };

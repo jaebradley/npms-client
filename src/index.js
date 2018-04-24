@@ -2,6 +2,7 @@ import axios from 'axios';
 import qs from 'qs';
 
 import buildSearchQuery from './buildSearchQuery';
+import PACKAGE_TYPES from './packageTypes';
 
 const NPMS_API_BASE_URL = 'https://api.npms.io/v2';
 
@@ -11,7 +12,7 @@ const search = ({
   author = null,
   maintainer = null,
   exclude = {
-    packageTypes: [],
+    packageTypes: [PACKAGE_TYPES.DEPRECATED, PACKAGE_TYPES.INSECURE, PACKAGE_TYPES.UNSTABLE],
     keywords: [],
   },
   include = {
@@ -46,7 +47,7 @@ const search = ({
       from,
       size,
     },
-  })
+  }).then(response => response.data)
 );
 
 const getSuggestions = ({
@@ -60,10 +61,20 @@ const getSuggestions = ({
       q: terms.join('+'),
       size,
     },
-  })
+  }).then(response => response.data)
 );
+
+const getPackageInformation = packageName => axios.get(`${NPMS_API_BASE_URL}/package/${packageName}`).then(response => response.data);
+
+const getPackagesInformation = packageNames => axios.post(
+  `${NPMS_API_BASE_URL}/package/mget`,
+  packageNames,
+).then(response => response.data);
 
 export {
   search,
   getSuggestions,
+  getPackageInformation,
+  getPackagesInformation,
+  PACKAGE_TYPES,
 };

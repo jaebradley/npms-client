@@ -2,12 +2,17 @@
   "name": "npms-client",
   "version": "0.0.0-development",
   "description": "A NodeJS Client for npms.io",
-  "keywords": [],
+  "keywords": [
+    "npms",
+    "npms.io",
+    "npm search",
+    "npm package search"
+  ],
   "homepage": "https://github.com/jaebradley/npms-client#readme",
   "bugs": {
     "url": "https://github.com/jaebradley/npms-client/issues"
   },
-  "license": "",
+  "license": "MIT",
   "author": {
     "name": "jae.b.bradley@gmail.com"
   },
@@ -18,7 +23,7 @@
   "module": "build/index.esm.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jaebradley/npms-client.git"
+    "url": "https://github.com/jaebradley/npms-client.git"
   },
   "scripts": {
     "build": "BABEL_ENV=production rollup -c",
@@ -62,11 +67,12 @@
     "rollup-plugin-babel-minify": "^4.0.0",
     "rollup-plugin-commonjs": "^9.1.0",
     "rollup-plugin-filesize": "^1.5.0",
+    "rollup-plugin-json": "^2.3.0",
     "rollup-plugin-local-resolve": "^1.0.7",
+    "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-resolve": "^3.3.0",
     "semantic-release": "^15.1.7",
     "travis-deploy-once": "^4.4.1"
   },
-  "_id": "npms-client@0.0.0-development",
   "readme": "https://github.com/jaebradley/npms-client#readme"
 }
