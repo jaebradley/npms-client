@@ -5,7 +5,9 @@ import localResolve from 'rollup-plugin-local-resolve';
 import filesize from 'rollup-plugin-filesize';
 import minify from 'rollup-plugin-babel-minify';
 import json from 'rollup-plugin-json';
+import globals from 'rollup-plugin-node-globals';
 import builtins from 'rollup-plugin-node-builtins';
+import uglify from 'rollup-plugin-uglify';
 
 const config = {
   input: 'src/index.js',
@@ -26,13 +28,20 @@ const config = {
     },
   ],
   plugins: [
+    globals(),
     builtins(),
     babel({ exclude: 'node_modules/**' }),
     minify(),
-    localResolve(),
+    uglify(),
+    localResolve({
+      jsnext: true,
+      main: true,
+      preferBuiltins: true,
+      browser: true,
+    }),
     resolve(),
-    commonjs(),
     json(),
+    commonjs(),
     filesize(),
   ],
 };
