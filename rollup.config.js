@@ -11,12 +11,12 @@ const config = {
     {
       file: 'build/index.js',
       format: 'umd',
-      name: "npms-client",
+      name: 'npms-client',
     },
     {
       file: 'build/index.cjs.js',
       format: 'cjs',
-      name: "npms-client",
+      name: 'npms-client',
     },
     {
       file: 'build/index.esm.js',
