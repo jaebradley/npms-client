@@ -64,7 +64,7 @@ await search({
 
 Get suggestions for an array of search terms
 
-* **`terms` required** - an array of strings that represent the terms to search across
+* **`terms` (required)** - an array of strings that represent the terms to search across
 * `size` - a number that represents the total number of results to return. Is `25` by default.
 
 ```javascript
@@ -77,7 +77,7 @@ await getSuggestions({ terms: ['jae'] });
 
 Get information about a specific package
 
-* **`packageName` required** - a string that represents the package name
+* **`packageName` (required)** - a string that represents the package name
 
 ```javascript
 import { getPackageInformation } from 'npms-client';
@@ -89,7 +89,7 @@ await getPackageInformation('npms-client');
 
 Get information about a set of packages
 
-* **`packageNames` required** - an array of strings that represent all the package names to get information for
+* **`packageNames` (required)** - an array of strings that represent all the package names to get information for
 
 ```javascript
 import { getPackagesInformation } from 'npms-client';
