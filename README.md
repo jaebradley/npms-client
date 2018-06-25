@@ -3,6 +3,7 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/jaebradley/npms-client.svg)](https://greenkeeper.io/)
 [![npm](https://img.shields.io/npm/v/npms-client.svg)](https://www.npmjs.com/package/npms-client)
 [![npm](https://img.shields.io/npm/dt/npms-client.svg)](https://www.npmjs.com/package/npms-client)
+[![codecov](https://codecov.io/gh/jaebradley/npms-client/branch/master/graph/badge.svg)](https://codecov.io/gh/jaebradley/npms-client)
 
 NodeJS Client for [the `npms.io` API](https://api-docs.npms.io/)
 
