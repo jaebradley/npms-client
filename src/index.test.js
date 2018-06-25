@@ -3,7 +3,7 @@ import {
   getSuggestions,
   getPackageInformation,
   getPackagesInformation,
-} from './';
+} from '.';
 
 describe('integration test', () => {
   describe('#search', () => {

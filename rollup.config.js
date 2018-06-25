@@ -7,7 +7,7 @@ import minify from 'rollup-plugin-babel-minify';
 import json from 'rollup-plugin-json';
 import globals from 'rollup-plugin-node-globals';
 import builtins from 'rollup-plugin-node-builtins';
-import uglify from 'rollup-plugin-uglify';
+import { terser } from 'rollup-plugin-terser';
 
 const config = {
   input: 'src/index.js',
@@ -55,7 +55,7 @@ const config = {
     }),
     commonjs(),
     minify(),
-    uglify(),
+    terser(),
     filesize(),
   ],
 };
