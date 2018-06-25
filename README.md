@@ -1,15 +1,19 @@
 # `npms-client`
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/jaebradley/npms-client.svg)](https://greenkeeper.io/)
+[![npm](https://img.shields.io/npm/v/npms-client.svg)](https://www.npmjs.com/package/npms-client)
+[![npm](https://img.shields.io/npm/dt/npms-client.svg)](https://www.npmjs.com/package/npms-client)
+
 NodeJS Client for [the `npms.io` API](https://api-docs.npms.io/)
 
-* [Installation](#installation)
-* [API](#api)
-  * [`search`](#search)
-  * [`getSuggestions`](#getSuggestions)
-  * [`getSuggestions`](#getsuggestions)
-  * [`getPackageInformation`](#getpackageinformation)
-  * [`getPackagesInformation`](#getpackagesinformation)
-  * [`PACKAGE_TYPES`](#package_types)
+- [`npms-client`](#npms-client)
+  - [Installation](#installation)
+  - [API](#api)
+    - [`search`](#search)
+    - [`getSuggestions`](#getsuggestions)
+    - [`getPackageInformation`](#getpackageinformation)
+    - [`getPackagesInformation`](#getpackagesinformation)
+    - [`PACKAGE_TYPES`](#packagetypes)
 
 ## Installation
 
@@ -58,6 +62,18 @@ await search({
     keywords: [],
   },
 });
+
+// Other search examples
+const termsSearch = await search({ terms: ['foo', 'bar']});
+const scopeSearch = await search({ terms: ['foo', 'bar'], scope: '@jaebradley' });
+const authorSearch = await search({ terms: ['foo', 'bar'], author: 'jaebradley' });
+const maintainerSearch = await search({ terms: ['foo', 'bar'], maintainer: 'jaebradley' });
+const excludeDeprecatedPackages = await search({ terms: ['foo', 'bar'], exclude: { packageTypes: [PACKAGE_TYPES.DEPRECATED] }});
+const excludeKeywords = await search({ terms: ['foo', 'bar'], exclude: { keywords: ['jae', 'baebae'] }});
+const includeDeprecatedPackages = await search({ terms: ['foo', 'bar'], include: { packageTypes: [PACKAGE_TYPES.DEPRECATED] }});
+const includeKeywords = await search({ terms: ['foo', 'bar'], include: { keywords: ['jae', 'baebae'] }});
+const sizeSearch = await search({ terms: ['foo', 'bar'], size: 10 });
+const offsetSearch = await search({ terms: ['foo', 'bar'], from: 10 });
 ```
 
 ### `getSuggestions`
