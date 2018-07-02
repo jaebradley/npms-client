@@ -4,6 +4,7 @@ cache:
     - ~/.npm
 notifications:
   email: true
+install: npm install
 node_js:
   - 'node'
   - 'lts/*'
