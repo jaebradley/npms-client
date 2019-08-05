@@ -38,7 +38,7 @@ Perform a search query
 * `exclude` - an object that represents certain exclusion rules
   * `packageTypes` - an array of [`PACKAGE_TYPES`](#package_types). Defaults to `[PACKAGE_TYPES.DEPRECATED, PACKAGE_TYPES.INSECURE, PACKAGE_TYPES.UNSTABLE]`.
   * `keywords` - an array of strings that filter based on matching values in `keywords` field in `package.json`
-* `include` - an object that represents certain exclusion rules
+* `include` - an object that represents certain inclusion rules
   * `packageTypes` - an array of [`PACKAGE_TYPES`](#package_types). Defaults to an empty array.
   * `keywords` - an array of strings that filter based on matching values in `keywords` field in `package.json`
 * `boostExactMatches` - a `boolean` that will boost exact matches. Is `true` by default.
