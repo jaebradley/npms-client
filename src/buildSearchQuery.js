@@ -35,11 +35,11 @@ const buildSearchQuery = ({
 
   const keywords = [];
   if (exclude && exclude.keywords && exclude.keywords.length > 0) {
-    exclude.keywords.forEach(keyword => keywords.push(`-${keyword}`));
+    exclude.keywords.forEach((keyword) => keywords.push(`-${keyword}`));
   }
 
   if (include && include.keywords && include.keywords.length > 0) {
-    include.keywords.forEach(keyword => keywords.push(keyword));
+    include.keywords.forEach((keyword) => keywords.push(keyword));
   }
 
   if (keywords.length > 0) {
@@ -48,13 +48,13 @@ const buildSearchQuery = ({
 
   const excludePackageTypes = [];
   if (exclude && exclude.packageTypes && exclude.packageTypes.length > 0) {
-    exclude.packageTypes.forEach(packageType => excludePackageTypes.push(packageType));
+    exclude.packageTypes.forEach((packageType) => excludePackageTypes.push(packageType));
     queryTerms.push(`not:${excludePackageTypes.join(',')}`);
   }
 
   const includePackageTypes = [];
   if (include && include.packageTypes && include.packageTypes.length > 0) {
-    include.packageTypes.forEach(packageType => includePackageTypes.push(packageType));
+    include.packageTypes.forEach((packageType) => includePackageTypes.push(packageType));
     queryTerms.push(`is:${includePackageTypes.join(',')}`);
   }
 
