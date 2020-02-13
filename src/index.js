@@ -31,7 +31,7 @@ const search = ({
 }) => (
   axios.get(`${NPMS_API_BASE_URL}/search`, {
     // custom serializer because npms.io doesn't respect %2B (aka +) in q parameter
-    paramsSerializer: params => `q=${params.q}&${qs.stringify({ from: params.from, size: params.size })}`,
+    paramsSerializer: (params) => `q=${params.q}&${qs.stringify({ from: params.from, size: params.size })}`,
     params: {
       q: buildSearchQuery({
         terms,
@@ -47,7 +47,7 @@ const search = ({
       from,
       size,
     },
-  }).then(response => response.data)
+  }).then((response) => response.data)
 );
 
 const getSuggestions = ({
@@ -56,20 +56,20 @@ const getSuggestions = ({
 }) => (
   axios.get(`${NPMS_API_BASE_URL}/search/suggestions`, {
     // custom serializer because npms.io doesn't respect %2B (aka +) in q parameter
-    paramsSerializer: params => `q=${params.q}&${qs.stringify({ size: params.size })}`,
+    paramsSerializer: (params) => `q=${params.q}&${qs.stringify({ size: params.size })}`,
     params: {
       q: terms.join('+'),
       size,
     },
-  }).then(response => response.data)
+  }).then((response) => response.data)
 );
 
-const getPackageInformation = packageName => axios.get(`${NPMS_API_BASE_URL}/package/${packageName}`).then(response => response.data);
+const getPackageInformation = (packageName) => axios.get(`${NPMS_API_BASE_URL}/package/${packageName}`).then((response) => response.data);
 
-const getPackagesInformation = packageNames => axios.post(
+const getPackagesInformation = (packageNames) => axios.post(
   `${NPMS_API_BASE_URL}/package/mget`,
   packageNames,
-).then(response => response.data);
+).then((response) => response.data);
 
 export {
   search,
